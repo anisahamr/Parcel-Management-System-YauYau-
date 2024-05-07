@@ -15,6 +15,7 @@ The assigned task for each group member:
 - main.dart (Anisah, Safiyyah, Amalia)
 
 Brief description of the case study:
+We were assigned to create a parcel management system that lets user which are the receiver and sender to store their parcel for some time. Another main user in this system is admin, which is given the privilege to remove parcel or view parcel based on slot (House A1-A10). Receiver is able to pickup, drop off and view parcel lists in their own slot(houseID). Sender on the other hand only gets to drop off the parcel in the slot(A1-A10) needed.
 
 Outstanding sources that enhance our understanding: 
 - https://www.geeksforgeeks.org/flutter-build-a-inventory-management-app/ (geeksforgeeks)
