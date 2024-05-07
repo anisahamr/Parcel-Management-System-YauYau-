@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receiver - Parcel Management System</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+    .options {
+        display: none; /* Initially hide options */
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Receiver page</h1>
+
+        <div class="storage-grid" id="buttonGrid">
+            
+            <button onclick="showLogin('A1')">A1</button>
+            <button onclick="showLogin('A2')">A2</button>
+            <button onclick="showLogin('A3')">A3</button>
+            <button onclick="showLogin('A4')">A4</button>
+            <button onclick="showLogin('A5')">A5</button>
+            <button onclick="showLogin('A6')">A6</button>
+            <button onclick="showLogin('A7')">A7</button>
+            <button onclick="showLogin('A8')">A8</button>
+            <button onclick="showLogin('A9')">A9</button>
+            <button onclick="showLogin('A10')">A10</button>
+        </div>
+
+        <div class="login-form" id="loginForm">
+            <h1>Login</h1>
+            <form action="submit_login.php" method="post" id="loginFormElement">
+                <label for="house_id">House ID:</label>
+                <input type="text" id="house_id" name="house_id" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" value="Login" id="loginButton">
+                <button type="button" onclick="hideLogin()">Back</button>
+            </form>
+        </div>
+
+        <!-- Add options buttons -->
+        <div class="options" id="optionsContainer">
+            <button id="pickUpBtn" onclick="pickUpParcels()">Pick-Up</button>
+            <button id="dropOffBtn" onclick="showDropOffForm()">Drop-Off</button>
+            <button id="viewBtn" onclick="showParcelTable()">View Parcels</button>
+        </div>
+
+
+        <!-- Drop-off form -->
+        <div class="drop-off-form" id="dropOffForm" style="display: none;">
+            <h2>Drop-Off Parcels</h2>
+            <input type="text" id="parcelInput" placeholder="Enter Parcel ID">
+            <button onclick="addParcel()">Add Parcel</button>
+            <button onclick="backToReceiverPage()">Back</button>
+        
+            <!-- Parcel table in drop-off page -->
+            <table id="dropOffParcelTable">
+                <thead>
+                    <tr>
+                        <th>Parcel ID</th>
+                        <th>Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dropOffParcelTableBody"></tbody>
+                    </table>
+                </div>
+
+        <!-- Parcel tables -->
+        <div class="parcel-table" id="parcelTableA1">
+            <h2>A1</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parcel ID</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="parcelTableBodyA1"></tbody>
+            </table>
+            <button class="back-button" onclick="backToOptions()">Back</button> <!-- Add back button -->
+        </div>
+
+        <div class="parcel-table" id="parcelTableA2">
+            <h2>A2</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parcel ID</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="parcelTableBodyA2"></tbody>
+            </table>
+            <button class="back-button" onclick="backToOptions()">Back</button> <!-- Add back button -->
+        </div>
+
+        <div class="parcel-table" id="parcelTableA3">
+            <h2>A3</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parcel ID</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="parcelTableBodyA3"></tbody>
+            </table>
+            <button class="back-button" onclick="backToOptions()">Back</button> <!-- Add back button -->
+        </div>
+
+        <div class="parcel-table" id="parcelTableA4">
+            <h2>A4</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parcel ID</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="parcelTableBodyA4"></tbody>
+            </table>
+            <button class="back-button" onclick="backToOptions()">Back</button> <!-- Add back button -->
+        </div>
+
+        <div class="parcel-table" id="parcelTableA5">
+            <h2>A5</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parcel ID</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="parcelTableBodyA5"></tbody>
+            </table>
+            <button class="back-button" onclick="backToOptions()">Back</button> <!-- Add back button -->
+        </div>
+
+        <div class="parcel-table" id="parcelTableA6">
+            <h2>A6</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parcel ID</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="parcelTableBodyA6"></tbody>
+            </table>
+            <button class="back-button" onclick="backToOptions()">Back</button> <!-- Add back button -->
+        </div>
+
+        <div class="parcel-table" id="parcelTableA7">
+            <h2>A7</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parcel ID</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="parcelTableBodyA7"></tbody>
+            </table>
+            <button class="back-button" onclick="backToOptions()">Back</button> <!-- Add back button -->
+        </div>
+
+        <div class="parcel-table" id="parcelTableA8">
+            <h2>A8</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parcel ID</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="parcelTableBodyA8"></tbody>
+            </table>
+            <button class="back-button" onclick="backToOptions()">Back</button> <!-- Add back button -->
+        </div>
+
+        <div class="parcel-table" id="parcelTableA9">
+            <h2>A9</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parcel ID</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="parcelTableBodyA9"></tbody>
+            </table>
+            <button class="back-button" onclick="backToOptions()">Back</button> <!-- Add back button -->
+        </div>
+
+        <div class="parcel-table" id="parcelTableA10">
+            <h2>A10</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parcel ID</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="parcelTableBodyA10"></tbody>
+            </table>
+            <button class="back-button" onclick="backToOptions()">Back</button> <!-- Add back button -->
+        </div>
+        <!-- Repeat for other house IDs -->
+
+    </div>
+
+    <script >
+        const MAX_PARCELS_PER_SLOT = 5; // Maximum parcels per slot
+
+        // Function to show login form for a specific house ID
+        function showLogin(houseId) {
+            document.getElementById("buttonGrid").style.display = "none";
+            document.getElementById("loginForm").style.display = "block";
+            document.getElementById("house_id").value = houseId;
+        }
+
+        // Function to hide login form
+        function hideLogin() {
+            document.getElementById("buttonGrid").style.display = "grid";
+            document.getElementById("loginForm").style.display = "none";
+        }
+
+        // Function to show options after login
+        function showOptions() {
+            document.getElementById("optionsContainer").style.display = "block";
+            document.getElementById("loginForm").style.display = "none"; // Hide login form after selecting house ID
+        }
+
+        // Listen for form submission
+        document.getElementById('loginFormElement').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+            showOptions(); // Call the function to show options after login
+        });
+
+        // Function to show pick-up message
+        function pickUpParcels() {
+            const currentHouseId = document.getElementById("house_id").value;
+            const parcelTableBody = document.getElementById("parcelTableBody" + currentHouseId);
+            
+            // Check if there are any parcels stored in the table
+            if (parcelTableBody && parcelTableBody.rows.length === 0) {
+                alert("No parcels stored.");
+            } else {
+                alert("Your storage is emptied, thank you!");
+                // Clear the parcel table for the current house ID
+                if (parcelTableBody) {
+                    parcelTableBody.innerHTML = '';
+                }
+                // Clear the drop-off parcel table
+                const dropOffParcelTableBody = document.getElementById("dropOffParcelTableBody");
+                if (dropOffParcelTableBody) {
+                    dropOffParcelTableBody.innerHTML = '';
+                }
+                // Hide the drop-off form
+                document.getElementById("dropOffForm").style.display = "none";
+                // Save parcel data to localStorage
+                saveParcelData(currentHouseId);
+            }
+        }
+
+        // Function to save parcel data to localStorage
+        function saveParcelData(currentHouseId) {
+            const parcelData = {
+                parcels: []
+            };
+            const parcelTableBody = document.getElementById("parcelTableBody" + currentHouseId).querySelectorAll("tr");
+            parcelTableBody.forEach(row => {
+                const id = row.cells[0].innerText;
+                const timestamp = row.cells[1].innerText;
+                parcelData.parcels.push({ id, timestamp, houseId: currentHouseId });
+            });
+            localStorage.setItem('parcelData' + currentHouseId, JSON.stringify(parcelData));
+        }
+
+        // Function to add parcel
+        function addParcel() {
+            const parcelInput = document.getElementById("parcelInput");
+            const parcelId = parcelInput.value.trim();
+            const currentHouseId = document.getElementById("house_id").value;
+            const parcelTableBody = document.getElementById("parcelTableBody" + currentHouseId);
+            
+            // Check if the number of parcels is less than the maximum allowed
+            if (parcelTableBody && parcelTableBody.rows.length < MAX_PARCELS_PER_SLOT) {
+                const timestamp = getCurrentDateTime();
+                const newRow = parcelTableBody.insertRow();
+                const cell1 = newRow.insertCell(0);
+                const cell2 = newRow.insertCell(1);
+                cell1.innerHTML = parcelId;
+                cell2.innerHTML = timestamp;
+                parcelInput.value = ''; // Clear the input field
+                // Save parcel data to localStorage
+                saveParcelData(currentHouseId);
+            } else {
+                alert("You can only store to 5 parcels.Please collect them first.");
+            }
+}
+
+        // Function to show drop-off form and parcel table if there are any parcels stored
+        function showDropOffForm() {
+            document.getElementById("dropOffForm").style.display = "block";
+            document.getElementById("optionsContainer").style.display = "none";
+            document.getElementById("loginForm").style.display = "none";
+
+            // Display the parcel table if there are any parcels stored
+            const currentHouseId = document.getElementById("house_id").value;
+            const parcelTableBody = document.getElementById("parcelTableBody" + currentHouseId);
+            const dropOffParcelTable = document.getElementById("dropOffParcelTable");
+            const dropOffParcelTableBody = document.getElementById("dropOffParcelTableBody");
+
+            if (parcelTableBody && parcelTableBody.rows.length > 0) {
+                dropOffParcelTable.style.display = "block"; // Show the parcel table
+                dropOffParcelTableBody.innerHTML = parcelTableBody.innerHTML; // Copy parcel table data
+            }
+        }
+
+        // Function to show parcel table
+        function showParcelTable() {
+            const currentHouseId = document.getElementById("house_id").value;
+            const parcelTable = document.getElementById("parcelTable" + currentHouseId);
+            if (parcelTable) {
+                parcelTable.style.display = "block";
+                document.getElementById("dropOffForm").style.display = "none"; // Hide drop-off form
+                document.getElementById("optionsContainer").style.display = "none"; // Hide options
+                document.getElementById("loginForm").style.display = "none"; // Hide login form
+                
+                // Clear the parcel table
+                const parcelTableBody = document.getElementById("parcelTableBody" + currentHouseId);
+                parcelTableBody.innerHTML = '';
+                
+                // Load saved parcel data for the current house ID
+                const savedParcelData = JSON.parse(localStorage.getItem('parcelData' + currentHouseId));
+                if (savedParcelData) {
+                    savedParcelData.parcels.forEach(parcel => {
+                        const newRow = parcelTableBody.insertRow();
+                        const cell1 = newRow.insertCell(0);
+                        const cell2 = newRow.insertCell(1);
+                        cell1.innerHTML = parcel.id;
+                        cell2.innerHTML = parcel.timestamp;
+                    });
+                }
+            } else {
+                alert("No parcel table found for the current house ID.");
+            }
+        }
+
+        // Function to get current date and time
+        function getCurrentDateTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString();
+            const time = now.toLocaleTimeString();
+            return `${date} ${time}`;
+        }
+
+        // Function to navigate back to the receiver page
+        function backToReceiverPage() {
+            document.getElementById("dropOffForm").style.display = "none";
+            document.getElementById("optionsContainer").style.display = "block";
+            document.getElementById("loginForm").style.display = "none";
+        }
+
+        function backToOptions() {
+            document.getElementById("optionsContainer").style.display = "block";
+            document.getElementById("dropOffForm").style.display = "none";
+            document.getElementById("loginForm").style.display = "none";
+
+        // Hide all parcel tables
+        const parcelTables = document.querySelectorAll(".parcel-table");
+
+        parcelTables.forEach(table => {
+            table.style.display = "none";
+        });
+}
+
+</script>
+</body>
+</html>
