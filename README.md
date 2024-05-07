@@ -22,3 +22,4 @@ Outstanding sources that enhance our understanding:
 - chatGPT
 - blackbox.ai
 - copilot.ai
+- https://github.com/whattadarsh/courierManagementSystem (similar program but using flutter and firebase
