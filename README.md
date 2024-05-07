@@ -8,7 +8,7 @@ Group member details (name and matric no):
 - Nuramalia Batrisyia binti Md Noor (2116432)
 
 The assigned task for each group member: 
-- Sender which has the function to drop-off parcel (Anisah)
+- Sender which has the function to drop-off parcel and view parcel (Anisah)
 - Receiver which has the function to pick-up, drop and view parcel (Safiyyah)
 - Admin which has the function to view and remove parcel (Amalia)
 - css (Anisah, Safiyyah, Amalia)
