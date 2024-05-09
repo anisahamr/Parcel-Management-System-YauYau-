@@ -19,6 +19,7 @@ void main() {
     window.location.href = 'admin.html';
   });
 
+
 var parcelCount = 0;
 
 
@@ -103,5 +104,52 @@ var parcelCount = 0;
   });
 
   //---------------Nor Anisah 2114564---------------------//
+
+ 
+//-------- Nuramalia Batrisyia bt Md Noor (2116432) ------//
+
+  final AdminloginBtn = querySelector('#AdminloginBtn');
+  final usernameInput = querySelector('#username')as InputElement;
+  final passwordInput = querySelector('#password') as InputElement;
+  final storageGrid = querySelector('#storageGrid')as DivElement;
+  final loginBox = querySelector('.login-box')as DivElement;
+
+  AdminloginBtn!.onClick.listen((event) {
+
+    final username = usernameInput.value; //storing the input of username 
+    final password = passwordInput.value; // storing the input of password
+
+    // a condition where only authorized username 'admin' and password '123' is allowed
+    if (username == 'admin' && password == '123') {
+      
+      storageGrid.style.display = 'block';
+      loginBox.style.display = 'none';
+    } else {
+      window.alert('Invalid username or password');
+    }
+  });
+
+
+
+// button event when button A1 - A10 is clicked
+ final A1Btn = querySelector('#storageGrid');
+  storageGrid.onClick.listen((event) {
+     window.location.href = 'adminView.html';
+  });
+
+  final backBtn = querySelector('#backBtn');
+  //final storageGrid = querySelector('#storageGrid');
+  final adminView = querySelector('.admin-view');
+
+  backBtn?.onClick.listen((_) {
+    print("Back button clicked!"); // Add this line for debugging
+    // Toggle visibility of buttons and admin view elements
+    storageGrid.style.display = 'grid'; // Show the buttons A1 to A10
+    adminView!.style.display = 'none'; // Hide the admin view elements
+  });
+
+ 
+  //-------- Nuramalia Batrisyia bt Md Noor (2116432) ------//
+
 
 }
